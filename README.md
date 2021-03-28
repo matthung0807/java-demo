@@ -1,2 +1,2 @@
 # java-demo
-Java Demo
+RabbitMQ Java Client - Producer 範例
