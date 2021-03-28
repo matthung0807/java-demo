@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.abc</groupId>
-    <artifactId>rabbitmq-producer</artifactId>
+    <artifactId>rabbitmq-consumer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -18,7 +18,7 @@
     </dependencies>
 
     <build>
-        <finalName>rabbitmq-producer</finalName> <!-- 打包的檔案名稱 -->
+        <finalName>rabbitmq-consumer</finalName> <!-- 打包的檔案名稱 -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -36,7 +36,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.abc.demo.Producer</mainClass> <!-- main類別的full qualified name -->
+                            <mainClass>com.abc.demo.Consumer</mainClass> <!-- main類別的full qualified name -->
                         </manifest>
                     </archive>
                     <descriptorRefs>
