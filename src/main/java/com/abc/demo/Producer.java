@@ -18,7 +18,7 @@ public class Producer {
                 Channel channel = connection.createChannel()
         ) {
             String message = "Hello World!";
-            
+
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes(StandardCharsets.UTF_8));
             System.out.println(" [x] Sent '" + message + "'");
