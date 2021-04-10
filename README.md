@@ -1,6 +1,6 @@
 # java-demo
 
-###Requirments
+### Requirments
 
 Write a password validation service, meant to be configurable via IoC (using dependency
 injection engine of your choice). The service is meant to check a text string for compliance
