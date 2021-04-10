@@ -1,5 +1,7 @@
-package com.abc.demo;
+package com.abc.demo.ability;
 
 public interface Fly {
+
     void fly(String name);
+
 }

@@ -1,4 +1,8 @@
-package com.abc.demo;
+package com.abc.demo.animal;
+
+import com.abc.demo.ability.Eat;
+import com.abc.demo.ability.Walk;
+import com.abc.demo.feature.Walkable;
 
 public class Tiger extends Animal implements Walkable {
 

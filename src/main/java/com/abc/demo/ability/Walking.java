@@ -1,4 +1,4 @@
-package com.abc.demo;
+package com.abc.demo.ability;
 
 public class Walking implements Walk {
 
@@ -6,4 +6,5 @@ public class Walking implements Walk {
     public void walk(String name) {
         System.out.println(name + " walk");
     }
+
 }

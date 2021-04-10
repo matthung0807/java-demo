@@ -1,6 +1,12 @@
-package com.abc.demo;
+package com.abc.demo.animal;
 
-public class Unicorn extends Animal implements Flyable, Walkable{
+import com.abc.demo.ability.Eat;
+import com.abc.demo.ability.Fly;
+import com.abc.demo.ability.Walk;
+import com.abc.demo.feature.Flyable;
+import com.abc.demo.feature.Walkable;
+
+public class Unicorn extends Animal implements Flyable, Walkable {
 
     private Fly fly;
     private Walk walk;

@@ -1,5 +1,13 @@
 package com.abc.demo;
 
+import com.abc.demo.ability.Eating;
+import com.abc.demo.ability.Flying;
+import com.abc.demo.ability.Walking;
+import com.abc.demo.animal.Eagle;
+import com.abc.demo.animal.Penguin;
+import com.abc.demo.animal.Tiger;
+import com.abc.demo.animal.Unicorn;
+
 public class Main {
 
     public static void main(String[] args) {

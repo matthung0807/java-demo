@@ -1,6 +1,7 @@
-package com.abc.demo;
+package com.abc.demo.feature;
 
 public interface Flyable {
 
     void fly();
+
 }
