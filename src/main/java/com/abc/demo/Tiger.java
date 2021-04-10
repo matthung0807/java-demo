@@ -2,11 +2,14 @@ package com.abc.demo;
 
 public class Tiger extends Animal implements Walkable {
 
-    public Tiger() {
-        this.name = "Tiger";
+    private Walk walk;
+
+    public Tiger(Eat eat, Walk walk) {
+        super("Tiger", eat);
+        this.walk = walk;
     }
 
     public void walk() {
-        System.out.println(this.name + " walk");
+        walk.walk(name);
     }
 }

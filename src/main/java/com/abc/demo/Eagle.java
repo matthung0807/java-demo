@@ -2,12 +2,15 @@ package com.abc.demo;
 
 public class Eagle extends Animal implements Flyable {
 
-    public Eagle() {
-        this.name = "Eagle";
+    private Fly fly;
+
+    public Eagle(Eat eat, Fly fly) {
+        super("Eagle", eat);
+        this.fly = fly;
     }
 
     @Override
     public void fly() {
-        System.out.println(this.name + " fly");
+        fly.fly(name);
     }
 }

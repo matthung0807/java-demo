@@ -2,17 +2,22 @@ package com.abc.demo;
 
 public class Unicorn extends Animal implements Flyable, Walkable{
 
-    public Unicorn() {
-        this.name = "Unicorn";
+    private Fly fly;
+    private Walk walk;
+
+    public Unicorn(Eat eat, Fly fly, Walk walk) {
+        super("Unicorn", eat);
+        this.fly = fly;
+        this.walk = walk;
     }
 
     @Override
     public void fly() {
-        System.out.println(this.name + " fly");
+        fly.fly(name);
     }
 
     @Override
     public void walk() {
-        System.out.println(this.name + " walk");
+        walk.walk(name);
     }
 }
