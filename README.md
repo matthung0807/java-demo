@@ -17,7 +17,7 @@ tools, Eclipse, IntelliJ, ant, or maven. The project should be ready for inserti
 production system. Show tests for the service and any constituent classes involved in
 fulfillment of the service. Also, show how to access and use the service at runtime.
 
-### Others Notice
+### Others
 
 * SOLID design principles
 * Apply sensible design patterns
