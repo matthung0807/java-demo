@@ -2,9 +2,10 @@ package com.abc.demo.animal;
 
 import com.abc.demo.ability.Eat;
 import com.abc.demo.ability.Fly;
+import com.abc.demo.feature.Eatable;
 import com.abc.demo.feature.Flyable;
 
-public class Eagle extends Animal implements Flyable {
+public class Eagle extends Animal implements Eatable, Flyable {
 
     private Fly fly;
 
