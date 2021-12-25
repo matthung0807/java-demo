@@ -1,30 +1,30 @@
 package com.abc.demo;
 
+import software.amazon.awssdk.core.SdkBytes;
 import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.ListObjectsRequest;
-import software.amazon.awssdk.services.s3.model.ListObjectsResponse;
-import software.amazon.awssdk.services.s3.model.S3Object;
+import software.amazon.awssdk.services.kinesis.KinesisClient;
+import software.amazon.awssdk.services.kinesis.model.PutRecordRequest;
+import software.amazon.awssdk.services.kinesis.model.PutRecordResponse;
 
-import java.util.List;
-import java.util.ListIterator;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
 
     public static void main(String[] arges) {
-        S3Client s3Client = S3Client.builder()
+        KinesisClient kinesisClient = KinesisClient.builder()
                 .region(Region.AP_NORTHEAST_1)
                 .build();
 
-        ListObjectsRequest listObjectsRequest = ListObjectsRequest.builder()
-                .bucket("s3-demo-bucket-202112151320") // bucket name
+        String data = "Hello world";
+
+        PutRecordRequest putRecordRequest = PutRecordRequest.builder()
+                .streamName("KinesisDataStreamDemo")
+                .partitionKey("demo-001")
+                .data(SdkBytes.fromString(data, StandardCharsets.UTF_8))
                 .build();
 
-        ListObjectsResponse res = s3Client.listObjects(listObjectsRequest);
-        List<S3Object> s3ObjectList = res.contents();
-
-        for (S3Object s3Object : s3ObjectList) {
-            System.out.print("key=" + s3Object.key());
-        }
+        PutRecordResponse putRecordResponse = kinesisClient.putRecord(putRecordRequest);
+        String sequenceNumber = putRecordResponse.sequenceNumber();
+        System.out.println(sequenceNumber);
     }
 }
