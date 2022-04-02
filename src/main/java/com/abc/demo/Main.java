@@ -2,10 +2,10 @@ package com.abc.demo;
 
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.SqsClient;
-import software.amazon.awssdk.services.sqs.model.*;
-
-import java.util.Collections;
-import java.util.List;
+import software.amazon.awssdk.services.sqs.model.GetQueueUrlRequest;
+import software.amazon.awssdk.services.sqs.model.GetQueueUrlResponse;
+import software.amazon.awssdk.services.sqs.model.SendMessageRequest;
+import software.amazon.awssdk.services.sqs.model.SendMessageResponse;
 
 public class Main {
 
@@ -14,13 +14,9 @@ public class Main {
                 .region(Region.AP_NORTHEAST_1)
                 .build();
         String queueUrl = getQueueUrl(sqsClient);
-        List<Message> messageList = getMessageListFromSQS(sqsClient, queueUrl);
-        System.out.println(messageList.size());
-        if (!messageList.isEmpty()) {
-            var message = messageList.get(0);
-            System.out.println(message.messageId());
-            System.out.println(message.body());
-        }
+        String message = "hello world from java";
+        SendMessageResponse sendMessageResponse = sendMessageToSQS(sqsClient, queueUrl, message);
+        System.out.println(sendMessageResponse.messageId());
 
     }
 
@@ -33,18 +29,13 @@ public class Main {
         return getQueueUrlResponse.queueUrl();
     }
 
-    public static List<Message> getMessageListFromSQS(SqsClient sqsClient, String queueUrl) {
-        try {
-            ReceiveMessageRequest receiveMessageRequest = ReceiveMessageRequest.builder()
-                    .queueUrl(queueUrl)
-                    .maxNumberOfMessages(1)
-                    .visibilityTimeout(5)
-                    .build();
-            return sqsClient.receiveMessage(receiveMessageRequest).messages();
-        } catch (SqsException e) {
-            System.err.println(e.awsErrorDetails().errorMessage());
-        }
-        return Collections.emptyList();
+    public static SendMessageResponse sendMessageToSQS(SqsClient sqsClient, String queueUrl, String message) {
+        SendMessageRequest sendMessageRequest = SendMessageRequest.builder()
+                .queueUrl(queueUrl)
+                .messageBody(message)
+                .build();
+        return sqsClient.sendMessage(sendMessageRequest);
+
     }
 
 }

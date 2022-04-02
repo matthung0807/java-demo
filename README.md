@@ -1,2 +1,2 @@
 # java-demo
-[Java 本機接收SQS queue的訊息](https://matthung0807.blogspot.com/2022/04/java-localhost-receive-message-from-sqs-queue.html)
+[Java 本機發送訊息到SQS queue](https://matthung0807.blogspot.com/2022/04/java-localhost-send-message-to-sqs-queue.html)
