@@ -37,7 +37,8 @@ public class Main {
         try {
             ReceiveMessageRequest receiveMessageRequest = ReceiveMessageRequest.builder()
                     .queueUrl(queueUrl)
-                    .maxNumberOfMessages(5)
+                    .maxNumberOfMessages(1)
+                    .visibilityTimeout(5)
                     .build();
             return sqsClient.receiveMessage(receiveMessageRequest).messages();
         } catch (SqsException e) {
